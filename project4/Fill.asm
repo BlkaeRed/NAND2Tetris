@@ -1,0 +1,43 @@
+(LOOP)
+	@KBD 
+	D=M
+  	@LOOP1
+  	D;JEQ 
+  	@LOOP2
+  	0;JMP 
+
+(LOOP1)
+	@k
+	D=M 
+	@LOOP
+	D;JLT 
+	@k
+	D=M
+	@SCREEN
+	A=D+A 
+	M=0 
+	@k
+	M=M-1 
+	@LOOP
+	0;JMP 
+
+(LOOP2)
+	@k
+	D=M
+	@8192 
+	D=D-A
+	@LOOP
+	D;JGE 
+	@k
+	D=M
+	@SCREEN
+	A=D+A
+	M=-1 
+	@k
+	M=M+1 
+	@LOOP
+	0;JMP 
+
+(END)
+	@END
+	0;JMP 
